@@ -95,13 +95,56 @@ if (projectGrid) {
 
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector("#site-nav");
+const navLinks = siteNav ? Array.from(siteNav.querySelectorAll("a")) : [];
+const activeNavLink = navLinks.find((link) => link.getAttribute("aria-current") === "page");
+
+if (siteNav && activeNavLink) {
+  const navIndicator = document.createElement("span");
+  navIndicator.className = "nav-indicator";
+  navIndicator.setAttribute("aria-hidden", "true");
+  siteNav.appendChild(navIndicator);
+
+  const moveNavIndicator = (link) => {
+    if (window.innerWidth <= 720) {
+      return;
+    }
+
+    const navBounds = siteNav.getBoundingClientRect();
+    const linkBounds = link.getBoundingClientRect();
+
+    navIndicator.style.width = `${linkBounds.width}px`;
+    navIndicator.style.transform = `translateX(${linkBounds.left - navBounds.left}px)`;
+    navIndicator.style.opacity = "1";
+  };
+
+  const resetNavIndicator = () => moveNavIndicator(activeNavLink);
+
+  requestAnimationFrame(() => {
+    resetNavIndicator();
+    requestAnimationFrame(() => siteNav.classList.add("indicator-ready"));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("pointerenter", () => moveNavIndicator(link));
+    link.addEventListener("focus", () => moveNavIndicator(link));
+  });
+
+  siteNav.addEventListener("pointerleave", resetNavIndicator);
+  siteNav.addEventListener("focusout", (event) => {
+    if (!siteNav.contains(event.relatedTarget)) {
+      resetNavIndicator();
+    }
+  });
+
+  window.addEventListener("resize", resetNavIndicator);
+}
 
 navToggle.addEventListener("click", () => {
   const isOpen = siteNav.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", String(isOpen));
 });
 
-siteNav.querySelectorAll("a").forEach((link) => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     siteNav.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
