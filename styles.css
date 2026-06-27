@@ -251,6 +251,10 @@ h3 {
 .project-link,
 .phase-prototype-button,
 .form-submit {
+  font-family: var(--font-body);
+  font-size: var(--text-button);
+  font-weight: 800;
+  line-height: 1.2;
   cursor: pointer;
   transition:
     transform 160ms ease,
@@ -493,8 +497,6 @@ h3 {
   padding: 0 12px;
   color: var(--ink);
   background: transparent;
-  font-size: var(--text-button);
-  font-weight: 900;
 }
 
 .project-link-secondary {
@@ -645,9 +647,6 @@ h3 {
   justify-self: center;
   min-height: 48px;
   padding: 0 22px;
-  font-size: var(--text-button);
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 .phase-page-actions {
@@ -958,10 +957,6 @@ h3 {
   min-width: 190px;
   min-height: 48px;
   padding: 0 42px;
-  font: inherit;
-  font-size: var(--text-button);
-  font-weight: 800;
-  text-transform: uppercase;
   cursor: pointer;
 }
 
