@@ -50,13 +50,14 @@ const projects = [
     monogram: "QC",
     image: "assets/images/quick-cuisine.png",
     link: "https://www.figma.com/design/j1cZf0Y5yx7t0ZsPo18wfy/Final-Project?node-id=103-2061&t=RPEJnoMU15lceaqi-1",
+    processLink: "quick-cuisine-process.html",
     homePreview: false,
   },
   {
     title: "Swimplicity",
     summary:
       "A CRM landing page and rebrand for the company, Swimplicity, to clearly present its platform and services.",
-    tags: ["Figma", "CRM", "Landing Page"],
+    tags: ["Figma"],
     accent: "#2563EB",
     monogram: "SW",
     image: "assets/images/swimplicity-card.jpg",
