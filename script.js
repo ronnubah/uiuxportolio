@@ -52,6 +52,18 @@ const projects = [
     link: "https://www.figma.com/design/j1cZf0Y5yx7t0ZsPo18wfy/Final-Project?node-id=103-2061&t=RPEJnoMU15lceaqi-1",
     homePreview: false,
   },
+  {
+    title: "Swimplicity",
+    summary:
+      "A CRM landing page and rebrand for the company, Swimplicity, to clearly present its platform and services.",
+    tags: ["Figma", "CRM", "Landing Page"],
+    accent: "#2563EB",
+    monogram: "SW",
+    image: "assets/images/swimplicity-card.jpg",
+    link: "https://www.figma.com/design/gSyg68jHuIv3RP213vJKj7/Ramsey_Codexo?node-id=1-2&t=9G0Z39Yx0EvOHolZ-1",
+    processLink: "swimplicity-process.html",
+    homePreview: false,
+  },
 ];
 
 const projectGrid = document.querySelector("#project-grid");
@@ -79,14 +91,22 @@ if (projectGrid) {
         <div class="tag-list">
           ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
         </div>
-        <div class="project-actions">
-          <a class="project-link" href="${project.link}">${project.actionLabel || "View Prototype"}</a>
-          ${
-            project.processLink
-              ? `<a class="project-link project-link-secondary" href="${project.processLink}">View Process Page</a>`
-              : ""
-          }
-        </div>
+        ${
+          project.link || project.processLink
+            ? `<div class="project-actions">
+                ${
+                  project.link
+                    ? `<a class="project-link" href="${project.link}">${project.actionLabel || "View Prototype"}</a>`
+                    : ""
+                }
+                ${
+                  project.processLink
+                    ? `<a class="project-link project-link-secondary" href="${project.processLink}">View Process Page</a>`
+                    : ""
+                }
+              </div>`
+            : ""
+        }
       </div>
     `;
     projectGrid.appendChild(card);
