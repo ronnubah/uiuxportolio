@@ -640,6 +640,14 @@ h3 {
   font-size: var(--text-body);
 }
 
+.phase-meta-wide {
+  grid-column: 1 / -1;
+}
+
+.phase-meta-wide h2 {
+  margin-bottom: 12px;
+}
+
 .phase-prototype-button {
   display: inline-flex;
   align-items: center;
@@ -782,6 +790,79 @@ h3 {
   gap: 12px;
   margin: 10px 0 18px 28px;
   padding-left: 24px;
+}
+
+.podly-artifact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.podly-discovery-artifacts {
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.podly-research-artifacts {
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+.podly-discovery-artifacts figure,
+.podly-research-artifacts figure {
+  margin: 0;
+}
+
+.podly-artifact-image {
+  display: block;
+  width: min(100%, 980px);
+  height: auto;
+  max-height: 680px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.podly-persona-artifact {
+  width: min(100%, 520px);
+}
+
+.podly-discovery-artifacts figcaption,
+.podly-research-artifacts figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: var(--text-caption);
+  text-align: center;
+}
+
+.podly-artifact-placeholder {
+  margin: 0;
+}
+
+.podly-artifact-placeholder div {
+  display: grid;
+  min-height: 260px;
+  padding: 28px;
+  place-items: center;
+  border: 2px dashed var(--line);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--muted);
+  font-weight: 800;
+  text-align: center;
+}
+
+.podly-artifact-placeholder figcaption {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: var(--text-caption);
+}
+
+.podly-takeaways {
+  padding-bottom: 52px;
 }
 
 .gdd-image {
@@ -1070,6 +1151,10 @@ h3 {
   }
 
   .placeholder-gallery.two-up {
+    grid-template-columns: 1fr;
+  }
+
+  .podly-artifact-grid {
     grid-template-columns: 1fr;
   }
 
